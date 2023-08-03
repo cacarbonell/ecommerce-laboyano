@@ -1,0 +1,17 @@
+# Ignorar archivos y directorios generados por Node.js/npm
+node_modules
+npm-debug.log
+yarn-error.log
+
+# Ignorar archivos de desarrollo y configuración
+*.log
+.DS_Store
+.env
+.env.local
+.env.*.local
+.cache
+dist
+build
+
+# Ignorar archivos y directorios específicos de tu proyecto
+public/uploads
