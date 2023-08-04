@@ -1,62 +1,54 @@
-import { useState } from "react"
+import { useState } from 'react'
 import './header.css'
 import cart from './image/cart.png'
 import lupa from './image/lupa.png'
 import menu_h from './image/menu.png'
 
 export function Header() {
-    const [menu, setMenu ] = useState( false )
+    const [menu, setMenu] = useState(false);
 
-    const toggleMenu = () => {
-        setMenu( !menu )
+    const handleClick = () => {
+        setMenu(!menu);
     }
 
     return (
-        <header className="Header">
-            <h1 className="Header-h1">
-                <a href="#" className="Header-a">
+        <header className="header">
+            <div 
+                className="header-menu"
+                onClick={handleClick}
+            >
+                <img src={menu_h} alt="menu"></img>
+            </div>
+
+            <h1 className="header-h1">
+                <a href="#" className="header-a">
                     E-Laboyanos
                 </a>
             </h1>
 
-
-            <img src={menu_h} alt="menu"></img>
-
-            <nav className={ `Header-nav ${menu ? 'isActive' : '' }` }>
-                <ul className="Header-ul">
-                    <li className="Header-li">
-                        <a href="#" className="Header-a">
+            {menu && (
+            <nav className="header-nav">
+                <ul className="header-ul">
+                    <li className="header-li">
+                        <a href="#" className="header-a">
                             Ofertas
                         </a>
                     </li>
-                    <li className="Header-li">
-                        <a href="#" className="Header-a">
-                            Item2
-                        </a>
-                    </li>
-                    <li className="Header-li">
-                        <a href="#" className="Header-a">
-                            Item3
-                        </a>
-                    </li>
-                    <li className="Header-li">
-                        <a href="#" className="Header-a">
-                            Item4
-                        </a>
-                    </li>
-                    <li className="Header-li">
-                        <a href="#" className="Header-a">
-                            Item5
+                    <li className="header-li">
+                        <a href="#" className="header-a">
+                            Productos
                         </a>
                     </li>
                 </ul>
-            </nav>
+            </nav>)}
 
-
+            <div className="header-lupa">
             <img src={lupa} alt="buscador" />
+            </div>
 
-
-            <img src={cart} alt="cart" />
+            <div className="header-cart">
+                <img src={cart} alt="cart" />
+            </div>
         </header>
     )
 }
